@@ -39,7 +39,7 @@ objects:
   uid: scriptfilter-1
   version: 2
   type: alfred.workflow.input.scriptfilter
-readme: ''
+readme: quilk find project and use ide open it. like autojump in cli
 uidata:
   script-1:
     ypos: 50
