@@ -1,0 +1,55 @@
+---
+category: Productivity
+createdby: gxk
+webaddress: https://www.guxingke.com
+bundleid: com.gxk.demo.ideajump
+description: quilk find project and use ide open it. like autojump in cli.
+disabled: false
+name: ideajump
+objects:
+- config:
+    script: "/usr/local/bin/$1"
+    scriptargtype: 1
+    concurrently: false
+    escaping: 102
+    type: 0
+    scriptfile: ''
+  uid: script-1
+  version: 2
+  type: alfred.workflow.action.script
+- config:
+    argumenttrimmode: 0
+    keyword: j
+    escaping: 102
+    scriptargtype: 1
+    queuedelayimmediatelyinitially: true
+    queuedelaymode: 0
+    argumenttype: 0
+    type: 0
+    script: ./ideajump jump $HOME/toy/java $HOME/duitang/app/soc
+      $HOME/duitang/app/x $HOME/duitang/app/t $HOME/duitang/app/do "$1"
+    queuemode: 1
+    runningsubtext: ''
+    title: such as io
+    subtext: ''
+    scriptfile: ''
+    alfredfiltersresults: false
+    queuedelaycustom: 3
+    withspace: true
+  uid: scriptfilter-1
+  version: 2
+  type: alfred.workflow.input.scriptfilter
+readme: ''
+uidata:
+  script-1:
+    ypos: 50
+    xpos: 360
+  scriptfilter-1:
+    ypos: 50
+    xpos: 100
+connections:
+  scriptfilter-1:
+  - modifiersubtext: ''
+    modifiers: 0
+    destinationuid: script-1
+    vitoclose: false

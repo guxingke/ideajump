@@ -1,0 +1,7 @@
+target/
+.idea
+gen.iml
+
+temp/
+
+dependency-reduced-pom.xml
