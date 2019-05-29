@@ -13,8 +13,6 @@ echo 'build dist wf begin'
 mkdir dist temp
 
 cp -R static temp/
-cp icon.png temp/
-cp icon.png temp/scriptfilter-1.png
 cp ideajump temp/
 
 cp workflow.yml temp/
