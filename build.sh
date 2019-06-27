@@ -13,7 +13,7 @@ echo 'build dist wf begin'
 mkdir dist temp
 
 cp -R static temp/
-cp ideajump temp/
+cp target/ideajump temp/
 
 cp workflow.yml temp/
 

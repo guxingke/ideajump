@@ -1,6 +1,6 @@
 target/
 .idea
-gen.iml
+*.iml
 
 temp/
 
