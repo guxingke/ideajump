@@ -4,12 +4,12 @@ import com.gxk.demo.af.OutUtils;
 import com.gxk.demo.af.output.FeedBack;
 import com.gxk.demo.af.output.Icon;
 import com.gxk.demo.af.output.Item;
-
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -93,28 +93,22 @@ public class Main {
   private List<Item> getItems(List<Path> dirs) {
     List<Item> items = new ArrayList<>();
     for (Path dir : dirs) {
-      for (File file : dir.toFile().listFiles()) {
+      for (File file : Objects.requireNonNull(dir.toFile().listFiles())) {
         if (!file.isDirectory()) {
           continue;
         }
 
-        boolean isIdea = file.listFiles(it -> it.isFile() && it.getName().equals("pom.xml")).length == 1;
-        boolean isPy = file.listFiles(it -> it.isFile() && it.getName().equals("requirements.txt")).length == 1;
+        boolean isPy = Objects.requireNonNull(file.listFiles(it -> it.isFile() && it.getName()
+            .equals("requirements.txt"))).length == 1;
 
-        Icon icon = new Icon("static/images/vscode.png");
-        if (isIdea) {
-          icon = new Icon("static/images/ij.png");
-        }
+        Icon icon = new Icon("static/images/ij.png");
         if (isPy) {
           icon = new Icon("static/images/python.png");
         }
 
-        String argPrefix = "code ";
+        String argPrefix = "idea ";
         if (isPy) {
           argPrefix = "charm ";
-        }
-        if (isIdea) {
-          argPrefix = "idea ";
         }
 
         Item item = new Item(file.getName().toUpperCase(), file.getName(), file.getName(), argPrefix + file.getAbsolutePath(), file.getName(), icon);
